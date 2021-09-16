@@ -1,11 +1,23 @@
 import './App.css';
-import Text1 from './components/text1'
+import { Navbar } from './components';
+import { Footer } from './components';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <Text1/>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Footer />
+      </div>
+    </Router>
+
   );
 }
 
