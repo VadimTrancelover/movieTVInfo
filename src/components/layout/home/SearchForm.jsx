@@ -4,29 +4,29 @@ import { useDispatch, useSelector} from 'react-redux';
 
 function SearchForm() {
     const dispatch = useDispatch();
-    const text = useSelector((state) => state.text)
+    const  text  = useSelector(({search}) => search.text)
 
-    // const onChange = (e) => {
-    //     dispatch(SearchMovie(e.target.value))
-    // }
+    const onChange = (e) => {
+        dispatch(SearchMovie(e.target.value))
+    }
 
     const onSubmit = (e) => {
       e.preventDefault();
         dispatch(fetchMovies(text))
 
     }
-    const [inputValue, setInputValue] = useState(''); // Для диспатча значения поля по нажатию кнопки "Search"
+    // const [inputValue, setInputValue] = useState(''); // Для диспатча значения поля по нажатию кнопки "Search"
 
-    const newValue = (e) => {
-        setInputValue(e.target.value)  
-    }    
+    // const newValue = (e) => {
+    //     setInputValue(e.target.value)  
+    // }    
 
-    const handledSearch = (e) => {
-        e.preventDefault();
-        dispatch(SearchMovie(inputValue));
-        dispatch(fetchMovies(text))
+    // const handledSearch = (e) => {
+    //     e.preventDefault();
+    //     dispatch(SearchMovie(inputValue));
+    //     dispatch(fetchMovies(text))
         
-    }
+    // }
   
 
 
@@ -36,16 +36,15 @@ function SearchForm() {
           <h1 className="display-4 mb-3">
             <i className="fa fa-search" /> Search for a movie ,TV series ..
           </h1>
-          <div className="row">{text}</div>
           <form
           id="searchForm"
-          onSubmit={handledSearch}>
+          onSubmit={onSubmit}>
             <input
               type="text"
               className="form-control"
               name="searchText"
               placeholder="Search Movies, TV Series ..."
-              onChange={newValue}
+              onChange={onChange}
               
             />
             <button 
