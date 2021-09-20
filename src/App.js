@@ -1,6 +1,6 @@
 import './App.css';
-import { Navbar } from './components';
-import { Footer } from './components';
+import { Navbar , Footer} from './components/layout';
+import Landing from './components/layout/home/Landing';
 
 import {
   BrowserRouter as Router,
@@ -14,6 +14,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <Landing />
         <Footer />
       </div>
     </Router>

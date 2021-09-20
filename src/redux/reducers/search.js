@@ -5,7 +5,10 @@ const initialState = {
     movie: []
 };
 
-const searchReducer = (state = initialState, action) => {
+
+
+const search = (state = initialState, action) => {
+    console.log(state.text)
     switch(action.type) {
         case 'SEARCH_MOVIE':
             return {
@@ -13,11 +16,15 @@ const searchReducer = (state = initialState, action) => {
                 text: action.payload,
                 loading: false 
         };
-
+        case 'FETCH_MOVIE':
+            return{
+                ...state,
+                movies: action.payload
+            };
         default:
             return state;
     }
 
 }
 
-export default searchReducer;
+export default search;
