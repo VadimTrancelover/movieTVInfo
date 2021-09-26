@@ -19,7 +19,7 @@ const search = (state = initialState, action) => {
         case 'FETCH_MOVIE':
             return{
                 ...state,
-                movies: action.payload
+                movies: action.payload,
             };
         default:
             return state;
