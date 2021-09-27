@@ -1,20 +1,20 @@
 import './App.css';
 import { Navbar , Footer} from './components/layout';
 import Landing from './components/layout/home/Landing';
+import Movie from './components/layout/home/Movie';
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link
-} from 'react-router-dom';
+ } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <div>
         <Navbar />
-        <Landing />
+        <Route exact path='/' component={Landing}/>
+        <Route exact path='/movie/:id' component={Movie}/>
         <Footer />
       </div>
     </Router>

@@ -1,47 +1,54 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchMovie, setLoading } from '../../../redux/actions/SearchActions';
+import Spinner from '../Spinner';
 
-function Movie() {
+function Movie({ match }) {
 
-    const selectMovie = useSelector(({search}) => search.movie);
-    const isLoaded = useSelector(({search}) => search.loading);
+    const dispatch = useDispatch();
+    const movie = useSelector(({search}) => search.movie);
+    const loading = useSelector(({search}) => search.loading);
+    
+    console.log(movie)
+
+    const { Poster, Genre, Title,  Released, Rated, imdbRating, Director, Writer, Actors, Plot, imdbID} = movie;
 
     useEffect(() => {
-        
-    })
+      dispatch(fetchMovie(match.params.id));
+      dispatch(setLoading());
+    }, [])
 
-
-  return (
+    const movieInfo = (
     <>
       <div className="container">
         <div className="row">
           <div className="col-md-4 card card-body">
-            <img src={""} className="thumbnail" alt="Poster" />
+            <img src={Poster} className="thumbnail" alt="Poster" />
           </div>
           <div className="col-md-8">
-            <h2 className="mb-4">{""}</h2>
+            <h2 className="mb-4">{Title}</h2>
             <ul className="list-group">
               <li className="list-group-item">
-                <strong>Genre:</strong> {""}
+                <strong>Genre:</strong> {Genre}
               </li>
               <li className="list-group-item">
-                <strong>Released:</strong> {""}
+                <strong>Released:</strong> {Released}
               </li>
               <li className="list-group-item">
-                <strong>Rated:</strong> {""}
+                <strong>Rated:</strong> {Rated}
               </li>
               <li className="list-group-item">
-                <strong>IMDB Rating:</strong> {""}
+                <strong>IMDB Rating:</strong> {imdbRating}
               </li>
               <li className="list-group-item">
-                <strong>Director:</strong> {""}
+                <strong>Director:</strong> {Director}
               </li>
               <li className="list-group-item">
-                <strong>Writer:</strong> {""}
+                <strong>Writer:</strong> {Writer}
               </li>
               <li className="list-group-item">
-                <strong>Actors:</strong> {""}
+                <strong>Actors:</strong> {Actors}
               </li>
             </ul>
           </div>
@@ -50,10 +57,10 @@ function Movie() {
           <div className="card card-body bg-dark my-5 text-light">
             <div className="col-md-12">
               <h3>About </h3>
-              {""}
+              {Plot}
               <hr />
               <a
-                href={"https://www.imdb.com/title/" + ""}
+                href={"https://www.imdb.com/title/" + imdbID}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
@@ -67,8 +74,14 @@ function Movie() {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>)
+    
+    let content = loading ? <Spinner /> : movieInfo;
+  return <div>
+          {content}
+        </div>
+    
+    ;
 }
 
 export default Movie;

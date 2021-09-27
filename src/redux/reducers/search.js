@@ -20,12 +20,19 @@ const search = (state = initialState, action) => {
             return{
                 ...state,
                 movies: action.payload,
+                loading: false
             };
         case 'FETCH_MOVIE':
             return{
                 ...state,
                 movie: action.payload,
+                loading: false
             };
+        case 'LOADING':
+            return {
+                ...state,
+                loading: true
+            }
         default:
             return state;
     }

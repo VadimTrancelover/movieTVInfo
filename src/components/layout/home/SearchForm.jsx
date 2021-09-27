@@ -1,5 +1,5 @@
 import React , {useEffect, useState} from 'react'
-import { SearchMovie, fetchMovies } from '../../../redux/actions/SearchActions';
+import { SearchMovie, fetchMovies, setLoading } from '../../../redux/actions/SearchActions';
 import { useDispatch, useSelector} from 'react-redux';
 
 function SearchForm() {

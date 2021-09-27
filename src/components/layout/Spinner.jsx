@@ -1,5 +1,4 @@
 import React from 'react';
-
 import spinner from './spinner.gif';
 
 function Spinner() {
@@ -17,4 +16,4 @@ function Spinner() {
     )
 }
 
-export default Spinner
+export default Spinner;

@@ -7,7 +7,6 @@ import MovieContainer from './MovieContainer';
 function Landing() {
 
     const loading  = useSelector(({search}) => search.loading)
-    console.log(loading)
 
     return (
         <div className="container">
