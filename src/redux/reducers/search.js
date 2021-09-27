@@ -16,10 +16,15 @@ const search = (state = initialState, action) => {
                 text: action.payload,
                 loading: false 
         };
-        case 'FETCH_MOVIE':
+        case 'FETCH_MOVIES':
             return{
                 ...state,
                 movies: action.payload,
+            };
+        case 'FETCH_MOVIE':
+            return{
+                ...state,
+                movie: action.payload,
             };
         default:
             return state;
