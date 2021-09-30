@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/movieTVInfo/static/css/main.c14106c4.chunk.css",
+    "main.js": "/movieTVInfo/static/js/main.70338279.chunk.js",
+    "main.js.map": "/movieTVInfo/static/js/main.70338279.chunk.js.map",
+    "runtime-main.js": "/movieTVInfo/static/js/runtime-main.75707ffb.js",
+    "runtime-main.js.map": "/movieTVInfo/static/js/runtime-main.75707ffb.js.map",
+    "static/js/2.3f583796.chunk.js": "/movieTVInfo/static/js/2.3f583796.chunk.js",
+    "static/js/2.3f583796.chunk.js.map": "/movieTVInfo/static/js/2.3f583796.chunk.js.map",
+    "index.html": "/movieTVInfo/index.html",
+    "static/css/main.c14106c4.chunk.css.map": "/movieTVInfo/static/css/main.c14106c4.chunk.css.map",
+    "static/js/2.3f583796.chunk.js.LICENSE.txt": "/movieTVInfo/static/js/2.3f583796.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.75707ffb.js",
+    "static/js/2.3f583796.chunk.js",
+    "static/css/main.c14106c4.chunk.css",
+    "static/js/main.70338279.chunk.js"
+  ]
+}
