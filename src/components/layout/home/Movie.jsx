@@ -1,25 +1,34 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchMovie, setLoading } from '../../../redux/actions/SearchActions';
-import Spinner from '../Spinner';
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMovie, setLoading } from "../../../redux/actions/SearchActions";
+import Spinner from "../Spinner";
 
 function Movie({ match }) {
+  const dispatch = useDispatch();
+  const movie = useSelector(({ search }) => search.movie);
+  const loading = useSelector(({ search }) => search.loading);
 
-    const dispatch = useDispatch();
-    const movie = useSelector(({search}) => search.movie);
-    const loading = useSelector(({search}) => search.loading);
-    
-    console.log(movie)
+  const {
+    Poster,
+    Genre,
+    Title,
+    Released,
+    Rated,
+    imdbRating,
+    Director,
+    Writer,
+    Actors,
+    Plot,
+    imdbID,
+  } = movie;
 
-    const { Poster, Genre, Title,  Released, Rated, imdbRating, Director, Writer, Actors, Plot, imdbID} = movie;
+  useEffect(() => {
+    dispatch(fetchMovie(match.params.id));
+    dispatch(setLoading());
+  }, []);
 
-    useEffect(() => {
-      dispatch(fetchMovie(match.params.id));
-      dispatch(setLoading());
-    }, [])
-
-    const movieInfo = (
+  const movieInfo = (
     <>
       <div className="container">
         <div className="row">
@@ -74,14 +83,11 @@ function Movie({ match }) {
           </div>
         </div>
       </div>
-    </>)
-    
-    let content = loading ? <Spinner /> : movieInfo;
-  return <div>
-          {content}
-        </div>
-    
-    ;
+    </>
+  );
+
+  let content = loading ? <Spinner /> : movieInfo;
+  return <div>{content}</div>;
 }
 
 export default Movie;

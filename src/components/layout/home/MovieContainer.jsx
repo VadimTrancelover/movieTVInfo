@@ -8,7 +8,7 @@ function MovieContainer() {
     let content = '';
 
     content = movies && movies.length > 0 ? movies.map((movie, index) => <MovieCart key={index} movie={movie}/>) : null;
-
+    
     return (
         <div className="row">
             {content}
